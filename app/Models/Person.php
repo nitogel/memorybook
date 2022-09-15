@@ -30,13 +30,13 @@ class Person extends Model
         parent::boot();
 
         self::updated(function (Person $person) {
-            if ($person->isDirty('photo')) {
+            if ($person->isDirty('photo') && !empty($person->getOriginal('photo'))) {
                 Storage::delete($person->getOriginal('photo'));
             }
         });
 
         self::deleted(function (Person $person) {
-            if ($person->isDirty('photo')) {
+            if ($person->isDirty('photo') && !empty($person->getOriginal('photo'))) {
                 Storage::delete($person->getOriginal('photo'));
             }
         });
