@@ -61,6 +61,13 @@ Put to headers:
 `Authorization: Bearer 1|jzqxgwJ8cxTVpbsRJlR7FlpAz2tnH7jHB7gKhRji` 
 
 ### `GET /people`
+#### Query params
+
+- `search_by_name` - filter result by name or lastname
+- `search_by_dates` - filter result by birth_date or death_date
+
+##### Example:
+`GET /people?search_by_name=vasya&search_by_dates=01-01-1991`
 
 #### Response
 
