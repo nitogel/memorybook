@@ -37,6 +37,7 @@ class FortifyServiceProvider extends ServiceProvider
         $this->app->instance(RegisterResponse::class, new class implements RegisterResponse {
             public function toResponse($request)
             {
+                $request->user()->token = $request->user()->createToken('default');
                 return $request->user();
             }
         });
