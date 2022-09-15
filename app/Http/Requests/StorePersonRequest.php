@@ -31,7 +31,7 @@ class StorePersonRequest extends FormRequest
             'birth_date'  => 'date',
             'death_date'  => 'date',
             'biography'   => 'string',
-            'photo'       => 'image',
+            'photo'       => 'image|size:2048',
             'relation'    => 'string|required|in:' . implode(',', array_map(fn($i)=>$i->value,FamilyRelation::cases()))
         ];
     }
