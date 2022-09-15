@@ -1,64 +1,599 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Memory book app
+## API
 
-## About Laravel
+### Headers
+```X-Requested-With: XMLHttpRequest```
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### `GET /sanctum/csrf-cookie`
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Put to headers:
+```X-XSRF-TOKEN: {token}```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### `POST /register/`
 
-## Learning Laravel
+#### Params
+- name
+- email
+- password
+- password_confirm
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### `POST /login`
 
-## Laravel Sponsors
+#### Params
+- email
+- password
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+#### Response
+`
+{
+"id": 1,
+"name": "vasya",
+"email": "vasya@mail.com",
+"email_verified_at": null,
+"created_at": "2022-09-15T10:18:57.000000Z",
+"updated_at": "2022-09-15T10:18:57.000000Z",
+"two_factor_secret": null,
+"two_factor_recovery_codes": null,
+"two_factor_confirmed_at": null,
+"token": {
+"accessToken": {
+"name": "default",
+"abilities": [
+"*"
+],
+"expires_at": null,
+"tokenable_id": 1,
+"tokenable_type": "App\\Models\\User",
+"updated_at": "2022-09-15T10:30:23.000000Z",
+"created_at": "2022-09-15T10:30:23.000000Z",
+"id": 1
+},
+"plainTextToken": "1|jzqxgwJ8cxTVpbsRJlR7FlpAz2tnH7jHB7gKhRji"
+}
+}
+`
 
-### Premium Partners
+### API Auth
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+#### Headers:
+`Authorization: Bearer 1|jzqxgwJ8cxTVpbsRJlR7FlpAz2tnH7jHB7gKhRji` 
 
-## Contributing
+### `GET /people`
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+#### Response
 
-## Code of Conduct
+`{
+"current_page": 1,
+"data": [
+{
+"id": 3,
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null
+},
+{
+"id": 4,
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null
+},
+{
+"id": 5,
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null
+},
+{
+"id": 6,
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null
+},
+{
+"id": 7,
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null
+},
+{
+"id": 8,
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null
+},
+{
+"id": 9,
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null
+},
+{
+"id": 10,
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null
+},
+{
+"id": 11,
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null
+},
+{
+"id": 12,
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null
+},
+{
+"id": 13,
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null
+},
+{
+"id": 14,
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null
+},
+{
+"id": 15,
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null
+},
+{
+"id": 16,
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null
+},
+{
+"id": 17,
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": "2020-02-01T00:00:00.000000Z",
+"death_date": null
+}
+],
+"first_page_url": "http://memorybook.test/api/people?page=1",
+"from": 1,
+"last_page": 2,
+"last_page_url": "http://memorybook.test/api/people?page=2",
+"links": [
+{
+"url": null,
+"label": "&laquo; Previous",
+"active": false
+},
+{
+"url": "http://memorybook.test/api/people?page=1",
+"label": "1",
+"active": true
+},
+{
+"url": "http://memorybook.test/api/people?page=2",
+"label": "2",
+"active": false
+},
+{
+"url": "http://memorybook.test/api/people?page=2",
+"label": "Next &raquo;",
+"active": false
+}
+],
+"next_page_url": "http://memorybook.test/api/people?page=2",
+"path": "http://memorybook.test/api/people",
+"per_page": 15,
+"prev_page_url": null,
+"to": 15,
+"total": 16
+}`
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### `GET /people/{id}`
 
-## Security Vulnerabilities
+#### Response
+`{
+"id": 18,
+"first_name": "vasya",
+"last_name": "pupkin",
+"middle_name": "asdfasdf",
+"birth_date": "2020-02-01T00:00:00.000000Z",
+"death_date": null,
+"biography": "test",
+"photo": null,
+"created_at": "2022-09-15T11:01:47.000000Z",
+"updated_at": "2022-09-15T11:01:47.000000Z"
+}`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+### `GET /user`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Profile information
+
+#### Response
+`{
+"id": 1,
+"name": "vasya",
+"email": "vasya@mail.com",
+"email_verified_at": null,
+"created_at": "2022-09-15T10:18:57.000000Z",
+"updated_at": "2022-09-15T10:18:57.000000Z",
+"two_factor_secret": null,
+"two_factor_recovery_codes": null,
+"two_factor_confirmed_at": null
+}`
+
+### PUT user/password
+Update user password
+
+
+### `GET /user/people`
+Get people user have created and have relations
+
+#### Query Params
+- `page` - integer
+
+
+#### Response
+
+`{
+"current_page": 1,
+"data": [
+{
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null,
+"id": 4,
+"middle_name": null,
+"biography": "test",
+"photo": null,
+"created_at": "2022-09-15T10:43:34.000000Z",
+"updated_at": "2022-09-15T10:43:34.000000Z",
+"pivot": {
+"user_id": 1,
+"person_id": 4,
+"relation_type": "wife"
+}
+},
+{
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null,
+"id": 5,
+"middle_name": null,
+"biography": "test",
+"photo": null,
+"created_at": "2022-09-15T10:51:10.000000Z",
+"updated_at": "2022-09-15T10:51:10.000000Z",
+"pivot": {
+"user_id": 1,
+"person_id": 5,
+"relation_type": "wife"
+}
+},
+{
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null,
+"id": 6,
+"middle_name": null,
+"biography": "test",
+"photo": null,
+"created_at": "2022-09-15T10:51:24.000000Z",
+"updated_at": "2022-09-15T10:51:24.000000Z",
+"pivot": {
+"user_id": 1,
+"person_id": 6,
+"relation_type": "brother"
+}
+},
+{
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null,
+"id": 7,
+"middle_name": null,
+"biography": "test",
+"photo": null,
+"created_at": "2022-09-15T10:52:23.000000Z",
+"updated_at": "2022-09-15T10:52:23.000000Z",
+"pivot": {
+"user_id": 1,
+"person_id": 7,
+"relation_type": "brother"
+}
+},
+{
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null,
+"id": 8,
+"middle_name": null,
+"biography": "test",
+"photo": "images/TAO2U3SZApMIJaq2alS1PuKqdagvRNNDzrP2zt2J.gif",
+"created_at": "2022-09-15T10:53:38.000000Z",
+"updated_at": "2022-09-15T10:53:38.000000Z",
+"pivot": {
+"user_id": 1,
+"person_id": 8,
+"relation_type": "brother"
+}
+},
+{
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null,
+"id": 9,
+"middle_name": null,
+"biography": "test",
+"photo": "images/8NrSp2qNAveHArnCHFxsQUmoanxn4Gd5fjiYz1mU.gif",
+"created_at": "2022-09-15T10:55:03.000000Z",
+"updated_at": "2022-09-15T10:55:03.000000Z",
+"pivot": {
+"user_id": 1,
+"person_id": 9,
+"relation_type": "brother"
+}
+},
+{
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null,
+"id": 10,
+"middle_name": null,
+"biography": "test",
+"photo": "images/d7LZcd1z28EZrp0CNVP6AiyNSxhZe0BEEDiEPmKA.gif",
+"created_at": "2022-09-15T10:56:05.000000Z",
+"updated_at": "2022-09-15T10:56:05.000000Z",
+"pivot": {
+"user_id": 1,
+"person_id": 10,
+"relation_type": "brother"
+}
+},
+{
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null,
+"id": 11,
+"middle_name": null,
+"biography": "test",
+"photo": "images/8QYvkKg2MIYLlfKVVZ9hGOFoqta7OANqt1DsDCL7.gif",
+"created_at": "2022-09-15T10:56:14.000000Z",
+"updated_at": "2022-09-15T10:56:14.000000Z",
+"pivot": {
+"user_id": 1,
+"person_id": 11,
+"relation_type": "brother"
+}
+},
+{
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null,
+"id": 12,
+"middle_name": null,
+"biography": "test",
+"photo": "images/b96agzDmfXLKXZbPjTGxHmhEKJ8VVP2l1NUC8Zpx.gif",
+"created_at": "2022-09-15T10:56:55.000000Z",
+"updated_at": "2022-09-15T10:56:55.000000Z",
+"pivot": {
+"user_id": 1,
+"person_id": 12,
+"relation_type": "brother"
+}
+},
+{
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null,
+"id": 13,
+"middle_name": null,
+"biography": "test",
+"photo": "images/S0OnRZyLNBk0EDuTcEH1yheI3KX2ctgMHziESjg0.gif",
+"created_at": "2022-09-15T10:57:03.000000Z",
+"updated_at": "2022-09-15T10:57:03.000000Z",
+"pivot": {
+"user_id": 1,
+"person_id": 13,
+"relation_type": "brother"
+}
+},
+{
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null,
+"id": 14,
+"middle_name": null,
+"biography": "test",
+"photo": "images/UwE1o73GSgOYl5v29tTFNFRhOvX3AZGhCSMEBMrz.gif",
+"created_at": "2022-09-15T10:57:19.000000Z",
+"updated_at": "2022-09-15T10:57:19.000000Z",
+"pivot": {
+"user_id": 1,
+"person_id": 14,
+"relation_type": "brother"
+}
+},
+{
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null,
+"id": 15,
+"middle_name": null,
+"biography": "test",
+"photo": "images/p0TwwZHLv9tZajFKf8Ly5I9QzSc1wAP1BdedXyYU.gif",
+"created_at": "2022-09-15T10:58:42.000000Z",
+"updated_at": "2022-09-15T10:58:42.000000Z",
+"pivot": {
+"user_id": 1,
+"person_id": 15,
+"relation_type": "brother"
+}
+},
+{
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": null,
+"death_date": null,
+"id": 16,
+"middle_name": null,
+"biography": "test",
+"photo": null,
+"created_at": "2022-09-15T10:59:27.000000Z",
+"updated_at": "2022-09-15T10:59:27.000000Z",
+"pivot": {
+"user_id": 1,
+"person_id": 16,
+"relation_type": "brother"
+}
+},
+{
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": "2020-02-01T00:00:00.000000Z",
+"death_date": null,
+"id": 17,
+"middle_name": null,
+"biography": "test",
+"photo": null,
+"created_at": "2022-09-15T11:01:26.000000Z",
+"updated_at": "2022-09-15T11:01:26.000000Z",
+"pivot": {
+"user_id": 1,
+"person_id": 17,
+"relation_type": "brother"
+}
+},
+{
+"first_name": "vasya",
+"last_name": "pupkin",
+"birth_date": "2020-02-01T00:00:00.000000Z",
+"death_date": null,
+"id": 18,
+"middle_name": "asdfasdf",
+"biography": "test",
+"photo": null,
+"created_at": "2022-09-15T11:01:47.000000Z",
+"updated_at": "2022-09-15T11:01:47.000000Z",
+"pivot": {
+"user_id": 1,
+"person_id": 18,
+"relation_type": "brother"
+}
+}
+],
+"first_page_url": "http://memorybook.test/api/user/people?page=1",
+"from": 1,
+"last_page": 1,
+"last_page_url": "http://memorybook.test/api/user/people?page=1",
+"links": [
+{
+"url": null,
+"label": "&laquo; Previous",
+"active": false
+},
+{
+"url": "http://memorybook.test/api/user/people?page=1",
+"label": "1",
+"active": true
+},
+{
+"url": null,
+"label": "Next &raquo;",
+"active": false
+}
+],
+"next_page_url": null,
+"path": "http://memorybook.test/api/user/people",
+"per_page": 15,
+"prev_page_url": null,
+"to": 15,
+"total": 15
+}`
+
+### `GET /user/people/{id}`
+
+Get person by id
+
+#### Response
+`{
+"id": 14,
+"first_name": "vasya",
+"last_name": "pupkin",
+"middle_name": null,
+"birth_date": null,
+"death_date": null,
+"biography": "test",
+"photo": "images/UwE1o73GSgOYl5v29tTFNFRhOvX3AZGhCSMEBMrz.gif",
+"created_at": "2022-09-15T10:57:19.000000Z",
+"updated_at": "2022-09-15T10:57:19.000000Z",
+"photo_url": "/storage/images/UwE1o73GSgOYl5v29tTFNFRhOvX3AZGhCSMEBMrz.gif"
+}`
+
+### `POST /user/people/`
+Add Person information
+
+#### params
+- `first_name` - required | string
+- `last_name` - required | string
+- `middle_name` - required | string
+- `birth_date` - date
+- `death_date` - date
+- `biography` - text
+- `photo` - image file
+- `relation` - required | available vars: boyfriend, daughter, son, friend, father, mother, sister, brother, wife, husband
+
+#### Response
+Person model like get by id
+
+### `PUT /user/people/{id}`
+
+#### params
+- `first_name` - required | string
+- `last_name` - required | string
+- `middle_name` - required | string
+- `birth_date` - date
+- `death_date` - date
+- `biography` - text
+- `photo` - image file
+- `relation` - required | available vars: boyfriend, daughter, son, friend, father, mother, sister, brother, wife, husband
+
+Update Person information
+#### Response
+Person model like get by id
+
+### `DELETE /user/people/{id}`
+
+#### Response
+`1` - if success
